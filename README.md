@@ -1,5 +1,9 @@
 # Building grocery shopping microservices App 
 
+
+Youtube Playlist: https://www.youtube.com/playlist?list=PLaLqLOj2bk9ZV2RhqXzABUP5QSg42uJEs
+
+
 - Classify the app into 3 services:
 
 1. Products
@@ -111,9 +115,70 @@ If request comes to **shopping** endpoint, proxy redirect request to **localhost
 if request comes to **root** endpoint, proxy redirect request to **localhost:8003** where our product service is running.
 
 
+- Create one dev and env file for each service.
+
+**customer/.env**
+
+```env
+APP_SECRET ='jg_youtube_tutorial'
+
+# Mongo DB
+MONGODB_URI='mongodb://localhost:27017/shopping_app_customer'
+
+# Port
+PORT=8000
+```
+
+**customer/.env.dev**
+
+```dev
+APP_SECRET ='jg_youtube_tutorial'
+
+# Mongo DB
+MONGODB_URI='mongodb://localhost:27017/shopping_app_customer'
+
+# Port
+PORT=8000
+```
+
+- Similary add this .env and .env.dev file for each services.
+
+- Update **package.json** for each service.
+
+- Update the *scripts* and *dependencies* for each service.
+
+```json
+ "scripts": {
+    "start": "NODE_ENV=prod nodemon src/index.js",
+    "dev": "NODE_ENV=dev nodemon src/index.js"
+  }
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.3",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2"
+  }
+```
 
 
-time: 24: 50
+- Finally run the command under each directory.
 
-url: https://www.youtube.com/watch?v=EXDkgjU8DDU&list=PLaLqLOj2bk9ZV2RhqXzABUP5QSg42uJEs&index=2
+```bash
+npm i
+```
+
+- Then run the dev server in each service.
+
+```bash
+npm run dev
+```
+
+time: 00: 00
+
+url: https://www.youtube.com/watch?v=-reuug_7iG0&list=PLaLqLOj2bk9ZV2RhqXzABUP5QSg42uJEs&index=2
+
 
